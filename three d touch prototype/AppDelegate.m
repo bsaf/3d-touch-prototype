@@ -35,6 +35,24 @@
     
     // output a success message
     NSLog(@"%d attached!", serialNum);
+    
+    //  Get a data point from Analog Port 0
+
+    int i;
+    
+    for(i=0;i<4;i++)
+    {
+        double sensorValue = 0.0;
+        CPhidgetBridge_Gain gain;
+        CPhidgetBridge_getBridgeValue(bridge, i, &sensorValue);
+        
+        // output a data point
+        NSLog(@"== Input %d =====================", i);
+        NSLog(@"Gain: %d", CPhidgetBridge_getGain(bridge, i, &gain));
+        NSLog(@"\n");
+        NSLog(@"Value: %f", sensorValue);
+
+    }
 
     return YES;
 }
@@ -59,6 +77,11 @@
 
 - (void)applicationWillTerminate:(UIApplication *)application {
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
+    
+    NSLog(@"Closing connection to the bridge");
+    CPhidget_close((CPhidgetHandle)bridge);
+    CPhidget_delete((CPhidgetHandle)bridge);
+    
 }
 
 @end
