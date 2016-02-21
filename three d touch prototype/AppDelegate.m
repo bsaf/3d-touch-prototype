@@ -40,15 +40,20 @@
 
     int i;
     
-    for(i=0;i<4;i++)
+    for(i=0;i<1;i++)
     {
         double sensorValue = 0.0;
+        int enabled = 1;
         CPhidgetBridge_Gain gain;
         CPhidgetBridge_getBridgeValue(bridge, i, &sensorValue);
+
+        CPhidgetBridge_setEnabled(bridge, 0, 1);
+        CPhidgetBridge_getEnabled(bridge, 0, &enabled);
         
         // output a data point
         NSLog(@"== Input %d =====================", i);
         NSLog(@"Gain: %d", CPhidgetBridge_getGain(bridge, i, &gain));
+        NSLog(@"Enabled: %d", enabled);
         NSLog(@"\n");
         NSLog(@"Value: %f", sensorValue);
 
