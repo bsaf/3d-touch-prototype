@@ -12,52 +12,10 @@
 
 @end
 
-int gotAttach(CPhidgetHandle phid, void *context) {
-    
-    int serial;
-    int enabled = -1;
-    CPhidget_getSerialNumber((CPhidgetHandle)phid, &serial);
-    CPhidgetBridge_setEnabled((CPhidgetBridgeHandle)phid, 0, 1);
-    CPhidgetBridge_getEnabled((CPhidgetBridgeHandle)phid, 0, &enabled);
-    NSLog(@"Enabled: %d", enabled);
-    
-    NSLog(@"Let's give a warm welcome to %d!", serial);
-    
-    return 0;
-}
-
-int gotDetatch(CPhidgetHandle phid, void *context) {
-    
-    int serial;
-    CPhidget_getSerialNumber((CPhidgetHandle)phid, &serial);
-    
-    NSLog(@"Goodbye %d!", serial);
-    
-    return 0;
-}
-
-int gotBridgeData(CPhidgetBridgeHandle phid, void *context, int ind, double val) {
-    
-    NSLog(@"%f", val);
-    return 0;
-    
-}
-
 @implementation AppDelegate
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    
-    // set up a bridge object called "bridge"
-    CPhidgetBridge_create(&bridge);
-
-    // set up the handlers
-    CPhidget_set_OnAttach_Handler((CPhidgetHandle)bridge, gotAttach, NULL);
-    CPhidget_set_OnDetach_Handler((CPhidgetHandle)bridge, gotDetatch, NULL);
-    CPhidgetBridge_set_OnBridgeData_Handler(bridge, gotBridgeData, (__bridge void *)(self));
-    
-    // open the first detected bridge over the IP shown
-    CPhidget_openRemoteIP((CPhidgetHandle)bridge, -1, "127.0.0.1", 5001, NULL);
 
     return YES;
 }
@@ -82,11 +40,6 @@ int gotBridgeData(CPhidgetBridgeHandle phid, void *context, int ind, double val)
 
 - (void)applicationWillTerminate:(UIApplication *)application {
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
-    
-    NSLog(@"Closing connection to the bridge");
-    CPhidget_close((CPhidgetHandle)bridge);
-    CPhidget_delete((CPhidgetHandle)bridge);
-    
 }
 
 @end

@@ -7,8 +7,14 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "phidget21.h"
 
-@interface ViewController : UIViewController
+@interface ViewController : UIViewController {
+    CPhidgetBridgeHandle bridge;
+}
+
+@property (weak, nonatomic) IBOutlet UILabel *dataPoint;
+- (void)updateDataPoint:(NSNumber *) val;
 
 
 @end

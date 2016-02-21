@@ -30,6 +30,9 @@
                             <constraint firstItem="a3t-kM-HrU" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="l2N-v8-zqA"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="dataPoint" destination="a3t-kM-HrU" id="tDS-RI-uMp"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>

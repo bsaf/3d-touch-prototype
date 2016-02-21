@@ -9,11 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "phidget21.h"
 
-@interface AppDelegate : UIResponder <UIApplicationDelegate> {
-    
-    CPhidgetBridgeHandle bridge;
-    
-}
+@interface AppDelegate : UIResponder <UIApplicationDelegate>
 
 @property (strong, nonatomic) UIWindow *window;
 
