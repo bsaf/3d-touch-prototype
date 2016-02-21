@@ -17,6 +17,25 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
+
+    // set up a bridge object called "bridge"
+    CPhidgetBridge_create(&bridge);
+    
+    // open the first detected bridge over the IP shown
+    CPhidget_openRemoteIP((CPhidgetHandle)bridge, -1, "127.0.0.1", 5001, NULL);
+    
+    // set up a serial number
+    int serialNum = 0;
+    
+    // pause and wait for a bridge to be attached
+    CPhidget_waitForAttachment((CPhidgetHandle)bridge, 10000);
+    
+    // grab the serial number from the bridge
+    CPhidget_getSerialNumber((CPhidgetHandle)bridge, &serialNum);
+    
+    // output a success message
+    NSLog(@"%d attached!", serialNum);
+
     return YES;
 }
 
