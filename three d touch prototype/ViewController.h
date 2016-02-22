@@ -8,6 +8,8 @@
 
 #import <UIKit/UIKit.h>
 #import "phidget21.h"
+@import AudioToolbox;
+
 
 @interface ViewController : UIViewController {
     CPhidgetBridgeHandle bridge;

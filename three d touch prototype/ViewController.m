@@ -8,10 +8,13 @@
 
 #import "ViewController.h"
 
-
+bool lowValue = true;
 
 int gotAttach(CPhidgetHandle phid, void *context) {
     
+    // ## TODO
+    // use `dispatch_async` or `performSelectorOnMainThread` for all this stuff
+    // see DeviceAttach example here: http://www.phidgets.com/docs/Language_-_iOS
     int serial;
     int enabled = -1;
     CPhidget_getSerialNumber((CPhidgetHandle)phid, &serial);
@@ -26,6 +29,7 @@ int gotAttach(CPhidgetHandle phid, void *context) {
 
 int gotDetatch(CPhidgetHandle phid, void *context) {
     
+    // use dispatch async on this stuff too
     int serial;
     CPhidget_getSerialNumber((CPhidgetHandle)phid, &serial);
     
@@ -68,6 +72,8 @@ int gotBridgeData(CPhidgetBridgeHandle phid, void *context, int ind, double val)
     // open the first detected bridge over the IP shown
     CPhidget_openRemoteIP((CPhidgetHandle)bridge, -1, "10.0.1.70", 5001, NULL);
     
+    AudioServicesPlaySystemSound(kSystemSoundID_Vibrate);
+    
 }
 
 - (void)didReceiveMemoryWarning {
@@ -78,6 +84,14 @@ int gotBridgeData(CPhidgetBridgeHandle phid, void *context, int ind, double val)
 - (void)updateDataPoint:(NSNumber *)val {
     _dataPoint.text = [NSString stringWithFormat:@"%f", val.doubleValue];
     _dataSlider.value = val.doubleValue;
+    if (val.doubleValue > 0.5 && lowValue) {
+        AudioServicesPlaySystemSound (1105);
+        lowValue = false;
+    }
+    else if (val.doubleValue < 0.5 && !lowValue) {
+        AudioServicesPlaySystemSound (1105);
+        lowValue = true;
+    }
 }
 
 @end
