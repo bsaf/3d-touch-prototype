@@ -70,7 +70,7 @@ int gotBridgeData(CPhidgetBridgeHandle phid, void *context, int ind, double val)
     CPhidgetBridge_set_OnBridgeData_Handler(bridge, gotBridgeData, (__bridge void *)(self));
     
     // open the first detected bridge over the IP shown
-    CPhidget_openRemoteIP((CPhidgetHandle)bridge, -1, "10.0.1.70", 5001, NULL);
+    CPhidget_openRemoteIP((CPhidgetHandle)bridge, -1, "127.0.0.1", 5001, NULL);
     
     AudioServicesPlaySystemSound(kSystemSoundID_Vibrate);
     

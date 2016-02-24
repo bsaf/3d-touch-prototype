@@ -3,6 +3,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9530"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
@@ -14,30 +15,38 @@
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="No data" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="a3t-kM-HrU">
-                                <rect key="frame" x="270" y="289" width="60.5" height="20.5"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="wqc-dP-Zt1">
-                                <rect key="frame" x="148" y="329" width="304" height="31"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="screen.png" translatesAutoresizingMaskIntoConstraints="NO" id="zQl-GF-Sbf">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                            </imageView>
+                            <slider opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="wqc-dP-Zt1">
+                                <rect key="frame" x="55" y="397" width="304" height="31"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="300" id="za7-9a-e28"/>
                                 </constraints>
                             </slider>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="No data" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="a3t-kM-HrU">
+                                <rect key="frame" x="176" y="358" width="61" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="zQl-GF-Sbf" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="-20" id="Hyb-aM-bfN"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="zQl-GF-Sbf" secondAttribute="trailing" constant="-20" id="Keo-uO-4QN"/>
                             <constraint firstItem="wqc-dP-Zt1" firstAttribute="top" secondItem="a3t-kM-HrU" secondAttribute="bottom" constant="19" id="Srq-QF-ifv"/>
                             <constraint firstItem="a3t-kM-HrU" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="d81-KN-QBf"/>
                             <constraint firstItem="wqc-dP-Zt1" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="kkH-IB-PEl"/>
                             <constraint firstItem="a3t-kM-HrU" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="l2N-v8-zqA"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="zQl-GF-Sbf" secondAttribute="bottom" id="woT-dw-WBT"/>
+                            <constraint firstItem="zQl-GF-Sbf" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="topMargin" id="xGc-wn-q2n"/>
                         </constraints>
                     </view>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina55"/>
                     <connections>
                         <outlet property="dataPoint" destination="a3t-kM-HrU" id="tDS-RI-uMp"/>
                         <outlet property="dataSlider" destination="wqc-dP-Zt1" id="LeY-DN-SRk"/>
@@ -45,6 +54,10 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="510" y="265"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="screen.png" width="1242" height="2208"/>
+    </resources>
 </document>
