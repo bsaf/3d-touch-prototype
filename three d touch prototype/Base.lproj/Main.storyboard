@@ -50,6 +50,7 @@
                     <connections>
                         <outlet property="dataPoint" destination="a3t-kM-HrU" id="tDS-RI-uMp"/>
                         <outlet property="dataSlider" destination="wqc-dP-Zt1" id="LeY-DN-SRk"/>
+                        <outlet property="image" destination="zQl-GF-Sbf" id="zT4-gF-4bw"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

@@ -20,6 +20,8 @@
 
 - (void)updateDataPoint:(NSNumber *) val;
 
+@property (weak, nonatomic) IBOutlet UIImageView *image;
+
 
 @end
 

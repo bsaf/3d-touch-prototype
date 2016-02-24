@@ -72,7 +72,14 @@ int gotBridgeData(CPhidgetBridgeHandle phid, void *context, int ind, double val)
     // open the first detected bridge over the IP shown
     CPhidget_openRemoteIP((CPhidgetHandle)bridge, -1, "127.0.0.1", 5001, NULL);
     
-    AudioServicesPlaySystemSound(kSystemSoundID_Vibrate);
+    UIVisualEffect *blurEffect;
+    blurEffect = [UIBlurEffect effectWithStyle:UIBlurEffectStyleLight];
+    
+    UIVisualEffectView *visualEffectView;
+    visualEffectView = [[UIVisualEffectView alloc] initWithEffect:blurEffect];
+    
+    visualEffectView.frame = _image.bounds;
+    [_image addSubview:visualEffectView];
     
 }
 
