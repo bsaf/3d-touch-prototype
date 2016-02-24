@@ -7,6 +7,19 @@
 //
 
 #import "ViewController.h"
+#import <QuartzCore/QuartzCore.h>
+
+@interface ViewController ()
+
+- (void)updateDataPoint:(NSNumber *) val;
+
+@property (weak, nonatomic) IBOutlet UILabel *dataPoint;
+@property (weak, nonatomic) IBOutlet UISlider *dataSlider;
+@property (weak, nonatomic) IBOutlet UIImageView *image;
+@property (strong, nonatomic) UIImageView *overlayView;
+@property (strong, nonatomic) UIVisualEffectView *visualEffectView;
+
+@end
 
 bool lowValue = true;
 
@@ -50,11 +63,13 @@ int gotBridgeData(CPhidgetBridgeHandle phid, void *context, int ind, double val)
     
 }
 
-@interface ViewController ()
 
-@end
 
 @implementation ViewController
+
+-(BOOL)prefersStatusBarHidden{
+    return YES;
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -70,27 +85,30 @@ int gotBridgeData(CPhidgetBridgeHandle phid, void *context, int ind, double val)
     CPhidgetBridge_set_OnBridgeData_Handler(bridge, gotBridgeData, (__bridge void *)(self));
     
     // open the first detected bridge over the IP shown
-    CPhidget_openRemoteIP((CPhidgetHandle)bridge, -1, "127.0.0.1", 5001, NULL);
+    //CPhidget_openRemoteIP((CPhidgetHandle)bridge, -1, "127.0.0.1", 5001, NULL);
+    CPhidget_openRemoteIP((CPhidgetHandle)bridge, -1, "10.0.1.72", 5001, NULL);
     
     UIVisualEffect *blurEffect;
     blurEffect = [UIBlurEffect effectWithStyle:UIBlurEffectStyleLight];
     
-    UIVisualEffectView *visualEffectView;
-    visualEffectView = [[UIVisualEffectView alloc] initWithEffect:blurEffect];
+    _visualEffectView = [[UIVisualEffectView alloc] initWithEffect:blurEffect];
     
-    visualEffectView.frame = _image.bounds;
-    [_image addSubview:visualEffectView];
+    _visualEffectView.frame = _image.bounds;
+    [_image addSubview:_visualEffectView];
+
     
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
 }
 
 - (void)updateDataPoint:(NSNumber *)val {
+    
     _dataPoint.text = [NSString stringWithFormat:@"%f", val.doubleValue];
     _dataSlider.value = val.doubleValue;
+    _visualEffectView.alpha = val.doubleValue;
+    
     if (val.doubleValue > 0.5 && lowValue) {
         AudioServicesPlaySystemSound (1105);
         lowValue = false;

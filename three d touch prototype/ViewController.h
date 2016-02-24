@@ -15,12 +15,6 @@
     CPhidgetBridgeHandle bridge;
 }
 
-@property (weak, nonatomic) IBOutlet UILabel *dataPoint;
-@property (weak, nonatomic) IBOutlet UISlider *dataSlider;
-
-- (void)updateDataPoint:(NSNumber *) val;
-
-@property (weak, nonatomic) IBOutlet UIImageView *image;
 
 
 @end
