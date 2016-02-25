@@ -18,6 +18,7 @@
 @property (weak, nonatomic) IBOutlet UIImageView *image;
 @property (strong, nonatomic) UIImageView *overlayView;
 @property (strong, nonatomic) UIVisualEffectView *visualEffectView;
+@property (weak, nonatomic) IBOutlet UIImageView *safariIcon;
 
 @end
 
@@ -108,6 +109,12 @@ int gotBridgeData(CPhidgetBridgeHandle phid, void *context, int ind, double val)
     _dataPoint.text = [NSString stringWithFormat:@"%f", val.doubleValue];
     _dataSlider.value = val.doubleValue;
     _visualEffectView.alpha = val.doubleValue;
+    if (val.doubleValue > 0.1) {
+        _safariIcon.alpha = 1;
+    }
+    else {
+        _safariIcon.alpha = 0;
+    }
     
     if (val.doubleValue > 0.5 && lowValue) {
         AudioServicesPlaySystemSound (1105);

@@ -17,6 +17,7 @@
 		FDC787381C7E4C740055AAC5 /* screen.png in Resources */ = {isa = PBXBuildFile; fileRef = FDC787371C7E4C740055AAC5 /* screen.png */; };
 		FDC7873F1C7E65810055AAC5 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FDC7873E1C7E65810055AAC5 /* CoreGraphics.framework */; };
 		FDC787411C7E65880055AAC5 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FDC787401C7E65880055AAC5 /* QuartzCore.framework */; };
+		FDC787481C7EF62A0055AAC5 /* safari-icon.png in Resources */ = {isa = PBXBuildFile; fileRef = FDC787471C7EF62A0055AAC5 /* safari-icon.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,6 +35,7 @@
 		FDC787371C7E4C740055AAC5 /* screen.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = screen.png; path = ../../../../Desktop/screen.png; sourceTree = "<group>"; };
 		FDC7873E1C7E65810055AAC5 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		FDC787401C7E65880055AAC5 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		FDC787471C7EF62A0055AAC5 /* safari-icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "safari-icon.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -73,6 +75,7 @@
 			isa = PBXGroup;
 			children = (
 				FDC787371C7E4C740055AAC5 /* screen.png */,
+				FDC787471C7EF62A0055AAC5 /* safari-icon.png */,
 				FDA056281C7A041C0067EF43 /* AppDelegate.h */,
 				FDA056291C7A041C0067EF43 /* AppDelegate.m */,
 				FDA0562B1C7A041C0067EF43 /* ViewController.h */,
@@ -152,6 +155,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				FDA056351C7A041C0067EF43 /* LaunchScreen.storyboard in Resources */,
+				FDC787481C7EF62A0055AAC5 /* safari-icon.png in Resources */,
 				FDA056321C7A041C0067EF43 /* Assets.xcassets in Resources */,
 				FDC787381C7E4C740055AAC5 /* screen.png in Resources */,
 				FDA056301C7A041C0067EF43 /* Main.storyboard in Resources */,

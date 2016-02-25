@@ -33,6 +33,13 @@
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="screen.png" translatesAutoresizingMaskIntoConstraints="NO" id="zQl-GF-Sbf">
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                             </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" image="safari-icon.png" translatesAutoresizingMaskIntoConstraints="NO" id="Eph-EI-RqH">
+                                <rect key="frame" x="35" y="138" width="60" height="60"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="60" id="AIV-Hc-DVS"/>
+                                    <constraint firstAttribute="height" constant="60" id="F3k-19-6QQ"/>
+                                </constraints>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
@@ -47,6 +54,7 @@
                         <outlet property="dataPoint" destination="a3t-kM-HrU" id="tDS-RI-uMp"/>
                         <outlet property="dataSlider" destination="wqc-dP-Zt1" id="LeY-DN-SRk"/>
                         <outlet property="image" destination="zQl-GF-Sbf" id="zT4-gF-4bw"/>
+                        <outlet property="safariIcon" destination="Eph-EI-RqH" id="KOk-uE-slV"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -55,6 +63,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="safari-icon.png" width="180" height="180"/>
         <image name="screen.png" width="1242" height="2208"/>
     </resources>
 </document>
