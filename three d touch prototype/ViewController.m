@@ -96,7 +96,6 @@ int gotBridgeData(CPhidgetBridgeHandle phid, void *context, int ind, double val)
     
     _visualEffectView.frame = _image.bounds;
     [_image addSubview:_visualEffectView];
-
     
 }
 
@@ -106,21 +105,29 @@ int gotBridgeData(CPhidgetBridgeHandle phid, void *context, int ind, double val)
 
 - (void)updateDataPoint:(NSNumber *)val {
     
+    double calibratedValue = val.doubleValue;// - 0.6;
+    
+    if (calibratedValue < 0) {
+        calibratedValue = 0;
+    }
+    
+    NSLog(@"%f", val.doubleValue);
+    
     _dataPoint.text = [NSString stringWithFormat:@"%f", val.doubleValue];
     _dataSlider.value = val.doubleValue;
-    _visualEffectView.alpha = val.doubleValue;
-    if (val.doubleValue > 0.1) {
+    _visualEffectView.alpha = calibratedValue;
+    if (calibratedValue > 0.1) {
         _safariIcon.alpha = 1;
     }
     else {
         _safariIcon.alpha = 0;
     }
     
-    if (val.doubleValue > 0.5 && lowValue) {
+    if (calibratedValue > 0.5 && lowValue) {
         AudioServicesPlaySystemSound (1105);
         lowValue = false;
     }
-    else if (val.doubleValue < 0.5 && !lowValue) {
+    else if (calibratedValue < 0.5 && !lowValue) {
         AudioServicesPlaySystemSound (1105);
         lowValue = true;
     }
