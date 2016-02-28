@@ -14,8 +14,4 @@
 @interface ViewController : UIViewController {
     CPhidgetBridgeHandle bridge;
 }
-
-
-
 @end
-

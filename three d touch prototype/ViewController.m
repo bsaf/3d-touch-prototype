@@ -13,16 +13,15 @@
 
 - (void)updateDataPoint:(NSNumber *) val;
 
-@property (weak, nonatomic) IBOutlet UILabel *dataPoint;
-@property (weak, nonatomic) IBOutlet UISlider *dataSlider;
-@property (weak, nonatomic) IBOutlet UIImageView *image;
-@property (strong, nonatomic) UIImageView *overlayView;
-@property (strong, nonatomic) UIVisualEffectView *visualEffectView;
-@property (weak, nonatomic) IBOutlet UIImageView *safariIcon;
+@property (weak, nonatomic)   IBOutlet UILabel     *dataPoint;
+@property (weak, nonatomic)   IBOutlet UISlider    *dataSlider;
+@property (weak, nonatomic)   IBOutlet UIImageView *image;
+@property (weak, nonatomic)   IBOutlet UIImageView *safariIcon;
+
+@property (strong, nonatomic) UIImageView          *overlayView;
+@property (strong, nonatomic) UIVisualEffectView   *visualEffectView;
 
 @end
-
-bool lowValue = true;
 
 int gotAttach(CPhidgetHandle phid, void *context) {
     
@@ -54,12 +53,9 @@ int gotDetatch(CPhidgetHandle phid, void *context) {
 
 int gotBridgeData(CPhidgetBridgeHandle phid, void *context, int ind, double val) {
     
-    // TODO low - use dispatch async
     [(__bridge id)context performSelectorOnMainThread:@selector(updateDataPoint:)
-                                  withObject: [NSNumber numberWithDouble:val]
-                               waitUntilDone:NO];
-    
-    //    NSLog(@"%f", val);
+                          withObject: [NSNumber numberWithDouble:val]
+                          waitUntilDone:NO];
     return 0;
     
 }
@@ -106,6 +102,7 @@ int gotBridgeData(CPhidgetBridgeHandle phid, void *context, int ind, double val)
 double clickPoint = 0.8;
 double sensitivity = 1.3;
 int points = 0;
+bool lowValue = true;
 
 - (void)updateDataPoint:(NSNumber *)val {
     
