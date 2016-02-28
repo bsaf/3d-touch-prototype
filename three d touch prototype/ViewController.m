@@ -103,15 +103,26 @@ int gotBridgeData(CPhidgetBridgeHandle phid, void *context, int ind, double val)
     [super didReceiveMemoryWarning];
 }
 
+double clickPoint = 0.8;
+double sensitivity = 1.3;
+int points = 0;
+
 - (void)updateDataPoint:(NSNumber *)val {
     
-    double calibratedValue = val.doubleValue;// - 0.6;
+    double calibratedValue = (val.doubleValue - 0.4) * sensitivity;
     
     if (calibratedValue < 0) {
         calibratedValue = 0;
     }
     
-    NSLog(@"%f", val.doubleValue);
+    // don't log *everything*
+    if (points >= 10) {
+        NSLog(@"%f", val.doubleValue);
+        points = 0;
+    }
+    else {
+        points = points + 1;
+    }
     
     _dataPoint.text = [NSString stringWithFormat:@"%f", val.doubleValue];
     _dataSlider.value = val.doubleValue;
@@ -123,11 +134,11 @@ int gotBridgeData(CPhidgetBridgeHandle phid, void *context, int ind, double val)
         _safariIcon.alpha = 0;
     }
     
-    if (calibratedValue > 0.5 && lowValue) {
+    if (calibratedValue > clickPoint && lowValue) {
         AudioServicesPlaySystemSound (1105);
         lowValue = false;
     }
-    else if (calibratedValue < 0.5 && !lowValue) {
+    else if (calibratedValue < clickPoint && !lowValue) {
         AudioServicesPlaySystemSound (1105);
         lowValue = true;
     }
