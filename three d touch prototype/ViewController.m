@@ -17,6 +17,7 @@
 @property (weak, nonatomic)   IBOutlet UISlider    *dataSlider;
 @property (weak, nonatomic)   IBOutlet UIImageView *image;
 @property (weak, nonatomic)   IBOutlet UIImageView *safariIcon;
+@property (weak, nonatomic)   IBOutlet UIImageView *settingsIcon;
 
 @property (strong, nonatomic) UIImageView          *overlayView;
 @property (strong, nonatomic) UIVisualEffectView   *visualEffectView;
@@ -71,7 +72,8 @@ int gotBridgeData(CPhidgetBridgeHandle phid, void *context, int ind, double val)
 - (void)viewDidLoad {
     [super viewDidLoad];
     _dataPoint.text = @"HHH";
-    
+    _safariIcon.alpha = 0;
+    _settingsIcon.alpha = 0;
     
     // set up a bridge object called "bridge"
     CPhidgetBridge_create(&bridge);
@@ -101,19 +103,33 @@ int gotBridgeData(CPhidgetBridgeHandle phid, void *context, int ind, double val)
 
 double clickPoint = 0.8;
 double sensitivity = 1.3;
+double offset = 0.4;
 int points = 0;
 bool lowValue = true;
+bool logData = false;
+int beingTouched = 0;
 
 - (void)updateDataPoint:(NSNumber *)val {
     
-    double calibratedValue = (val.doubleValue - 0.4) * sensitivity;
+    if (beingTouched == 0) {
+        _safariIcon.alpha = 0;
+        _settingsIcon.alpha = 0;
+    }
+    else if (beingTouched == 1) {
+        _safariIcon.alpha = 1;
+    }
+    else if (beingTouched == 2) {
+        _settingsIcon.alpha = 1;
+    }
+    
+    double calibratedValue = (val.doubleValue - offset) * sensitivity;
     
     if (calibratedValue < 0) {
         calibratedValue = 0;
     }
     
     // don't log *everything*
-    if (points >= 10) {
+    if (points >= 10 && logData) {
         NSLog(@"%f", val.doubleValue);
         points = 0;
     }
@@ -124,12 +140,6 @@ bool lowValue = true;
     _dataPoint.text = [NSString stringWithFormat:@"%f", val.doubleValue];
     _dataSlider.value = val.doubleValue;
     _visualEffectView.alpha = calibratedValue;
-    if (calibratedValue > 0.1) {
-        _safariIcon.alpha = 1;
-    }
-    else {
-        _safariIcon.alpha = 0;
-    }
     
     if (calibratedValue > clickPoint && lowValue) {
         AudioServicesPlaySystemSound (1105);
@@ -140,5 +150,28 @@ bool lowValue = true;
         lowValue = true;
     }
 }
+
+-(void) touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
+{
+    UITouch *touch = [touches anyObject];
+    CGPoint location = [touch locationInView:self.view];
+    
+    CGRect fingerRect = CGRectMake(location.x-5, location.y-5, 10, 10);
+
+    if(CGRectIntersectsRect(fingerRect, _safariIcon.frame)){
+        beingTouched = 1;
+    }
+    else if(CGRectIntersectsRect(fingerRect, _settingsIcon.frame)){
+        beingTouched = 2;
+    }
+
+}
+
+-(void) touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event
+{
+    beingTouched = 0;
+}
+
+
 
 @end

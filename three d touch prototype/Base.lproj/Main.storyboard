@@ -30,14 +30,22 @@
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="screen.png" translatesAutoresizingMaskIntoConstraints="NO" id="zQl-GF-Sbf">
+                            <imageView contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="screen.png" translatesAutoresizingMaskIntoConstraints="NO" id="zQl-GF-Sbf">
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                                <gestureRecognizers/>
                             </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" image="safari-icon.png" translatesAutoresizingMaskIntoConstraints="NO" id="Eph-EI-RqH">
                                 <rect key="frame" x="35" y="138" width="60" height="60"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="60" id="AIV-Hc-DVS"/>
                                     <constraint firstAttribute="height" constant="60" id="F3k-19-6QQ"/>
+                                </constraints>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" image="settings-icon.png" translatesAutoresizingMaskIntoConstraints="NO" id="JJz-W8-Tio">
+                                <rect key="frame" x="129.5" y="138" width="60" height="60"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="60" id="MvT-BC-cEf"/>
+                                    <constraint firstAttribute="height" constant="60" id="hZ6-4i-rv1"/>
                                 </constraints>
                             </imageView>
                         </subviews>
@@ -55,6 +63,7 @@
                         <outlet property="dataSlider" destination="wqc-dP-Zt1" id="LeY-DN-SRk"/>
                         <outlet property="image" destination="zQl-GF-Sbf" id="zT4-gF-4bw"/>
                         <outlet property="safariIcon" destination="Eph-EI-RqH" id="KOk-uE-slV"/>
+                        <outlet property="settingsIcon" destination="JJz-W8-Tio" id="buO-fC-Mqi"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -65,5 +74,6 @@
     <resources>
         <image name="safari-icon.png" width="180" height="180"/>
         <image name="screen.png" width="1242" height="2208"/>
+        <image name="settings-icon.png" width="180" height="180"/>
     </resources>
 </document>
