@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		FD67D61F1C858974004DEABA /* settings-icon.png in Resources */ = {isa = PBXBuildFile; fileRef = FD67D61E1C858974004DEABA /* settings-icon.png */; };
+		FD67D6221C858B64004DEABA /* googlemaps-icon.png in Resources */ = {isa = PBXBuildFile; fileRef = FD67D6201C858B64004DEABA /* googlemaps-icon.png */; };
+		FD67D6231C858B64004DEABA /* photos-icon.png in Resources */ = {isa = PBXBuildFile; fileRef = FD67D6211C858B64004DEABA /* photos-icon.png */; };
 		FDA056271C7A041C0067EF43 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = FDA056261C7A041C0067EF43 /* main.m */; };
 		FDA0562A1C7A041C0067EF43 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = FDA056291C7A041C0067EF43 /* AppDelegate.m */; };
 		FDA0562D1C7A041C0067EF43 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FDA0562C1C7A041C0067EF43 /* ViewController.m */; };
@@ -23,6 +25,8 @@
 
 /* Begin PBXFileReference section */
 		FD67D61E1C858974004DEABA /* settings-icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "settings-icon.png"; sourceTree = "<group>"; };
+		FD67D6201C858B64004DEABA /* googlemaps-icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "googlemaps-icon.png"; sourceTree = "<group>"; };
+		FD67D6211C858B64004DEABA /* photos-icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "photos-icon.png"; sourceTree = "<group>"; };
 		FDA056221C7A041C0067EF43 /* three d touch prototype.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "three d touch prototype.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		FDA056261C7A041C0067EF43 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		FDA056281C7A041C0067EF43 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -79,6 +83,8 @@
 				FDC787371C7E4C740055AAC5 /* screen.png */,
 				FDC787471C7EF62A0055AAC5 /* safari-icon.png */,
 				FD67D61E1C858974004DEABA /* settings-icon.png */,
+				FD67D6201C858B64004DEABA /* googlemaps-icon.png */,
+				FD67D6211C858B64004DEABA /* photos-icon.png */,
 				FDA056281C7A041C0067EF43 /* AppDelegate.h */,
 				FDA056291C7A041C0067EF43 /* AppDelegate.m */,
 				FDA0562B1C7A041C0067EF43 /* ViewController.h */,
@@ -162,7 +168,9 @@
 				FDC787481C7EF62A0055AAC5 /* safari-icon.png in Resources */,
 				FDA056321C7A041C0067EF43 /* Assets.xcassets in Resources */,
 				FDC787381C7E4C740055AAC5 /* screen.png in Resources */,
+				FD67D6231C858B64004DEABA /* photos-icon.png in Resources */,
 				FDA056301C7A041C0067EF43 /* Main.storyboard in Resources */,
+				FD67D6221C858B64004DEABA /* googlemaps-icon.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -18,6 +18,8 @@
 @property (weak, nonatomic)   IBOutlet UIImageView *image;
 @property (weak, nonatomic)   IBOutlet UIImageView *safariIcon;
 @property (weak, nonatomic)   IBOutlet UIImageView *settingsIcon;
+@property (weak, nonatomic)   IBOutlet UIImageView *googlemapsIcon;
+@property (weak, nonatomic)   IBOutlet UIImageView *photosIcon;
 
 @property (strong, nonatomic) UIImageView          *overlayView;
 @property (strong, nonatomic) UIVisualEffectView   *visualEffectView;
@@ -74,6 +76,8 @@ int gotBridgeData(CPhidgetBridgeHandle phid, void *context, int ind, double val)
     _dataPoint.text = @"HHH";
     _safariIcon.alpha = 0;
     _settingsIcon.alpha = 0;
+    _googlemapsIcon.alpha = 0;
+    _photosIcon.alpha = 0;
     
     // set up a bridge object called "bridge"
     CPhidgetBridge_create(&bridge);
@@ -114,12 +118,20 @@ int beingTouched = 0;
     if (beingTouched == 0) {
         _safariIcon.alpha = 0;
         _settingsIcon.alpha = 0;
+        _googlemapsIcon.alpha = 0;
+        _photosIcon.alpha = 0;
     }
     else if (beingTouched == 1) {
         _safariIcon.alpha = 1;
     }
     else if (beingTouched == 2) {
         _settingsIcon.alpha = 1;
+    }
+    else if (beingTouched == 3) {
+        _googlemapsIcon.alpha = 1;
+    }
+    else if (beingTouched == 4) {
+        _photosIcon.alpha = 1;
     }
     
     double calibratedValue = (val.doubleValue - offset) * sensitivity;
@@ -164,7 +176,13 @@ int beingTouched = 0;
     else if(CGRectIntersectsRect(fingerRect, _settingsIcon.frame)){
         beingTouched = 2;
     }
-
+    else if(CGRectIntersectsRect(fingerRect, _googlemapsIcon.frame)){
+        beingTouched = 3;
+    }
+    else if(CGRectIntersectsRect(fingerRect, _photosIcon.frame)){
+        beingTouched = 4;
+    }
+    
 }
 
 -(void) touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event

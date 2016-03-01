@@ -48,6 +48,20 @@
                                     <constraint firstAttribute="height" constant="60" id="hZ6-4i-rv1"/>
                                 </constraints>
                             </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" image="googlemaps-icon.png" translatesAutoresizingMaskIntoConstraints="NO" id="QH0-RI-N4v">
+                                <rect key="frame" x="224" y="138" width="60" height="60"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="60" id="48w-7E-zrp"/>
+                                    <constraint firstAttribute="width" constant="60" id="sRP-Wg-tdG"/>
+                                </constraints>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" image="photos-icon.png" translatesAutoresizingMaskIntoConstraints="NO" id="1EO-Bf-Yaq">
+                                <rect key="frame" x="319" y="138" width="60" height="60"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="60" id="SoU-ZN-Ifb"/>
+                                    <constraint firstAttribute="height" constant="60" id="cLG-sn-ING"/>
+                                </constraints>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
@@ -61,7 +75,9 @@
                     <connections>
                         <outlet property="dataPoint" destination="a3t-kM-HrU" id="tDS-RI-uMp"/>
                         <outlet property="dataSlider" destination="wqc-dP-Zt1" id="LeY-DN-SRk"/>
+                        <outlet property="googlemapsIcon" destination="QH0-RI-N4v" id="U0y-fq-aW3"/>
                         <outlet property="image" destination="zQl-GF-Sbf" id="zT4-gF-4bw"/>
+                        <outlet property="photosIcon" destination="1EO-Bf-Yaq" id="sD9-nr-uMT"/>
                         <outlet property="safariIcon" destination="Eph-EI-RqH" id="KOk-uE-slV"/>
                         <outlet property="settingsIcon" destination="JJz-W8-Tio" id="buO-fC-Mqi"/>
                     </connections>
@@ -72,6 +88,8 @@
         </scene>
     </scenes>
     <resources>
+        <image name="googlemaps-icon.png" width="180" height="180"/>
+        <image name="photos-icon.png" width="180" height="180"/>
         <image name="safari-icon.png" width="180" height="180"/>
         <image name="screen.png" width="1242" height="2208"/>
         <image name="settings-icon.png" width="180" height="180"/>
