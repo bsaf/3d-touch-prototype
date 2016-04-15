@@ -88,8 +88,8 @@ int gotBridgeData(CPhidgetBridgeHandle phid, void *context, int ind, double val)
     CPhidgetBridge_set_OnBridgeData_Handler(bridge, gotBridgeData, (__bridge void *)(self));
     
     // open the first detected bridge over the IP shown
-    //CPhidget_openRemoteIP((CPhidgetHandle)bridge, -1, "127.0.0.1", 5001, NULL);
-    CPhidget_openRemoteIP((CPhidgetHandle)bridge, -1, "10.0.1.72", 5001, NULL);
+    CPhidget_openRemoteIP((CPhidgetHandle)bridge, -1, "192.168.1.111", 5001, NULL);
+    //CPhidget_openRemoteIP((CPhidgetHandle)bridge, -1, "10.0.1.72", 5001, NULL);
     
     UIVisualEffect *blurEffect;
     blurEffect = [UIBlurEffect effectWithStyle:UIBlurEffectStyleLight];
@@ -115,6 +115,7 @@ int beingTouched = 0;
 
 - (void)updateDataPoint:(NSNumber *)val {
     
+    // obviously, never do this
     if (beingTouched == 0) {
         _safariIcon.alpha = 0;
         _settingsIcon.alpha = 0;
