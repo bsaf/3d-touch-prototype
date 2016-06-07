@@ -1,5 +1,9 @@
-# Setting it up
+# 3D Touch prototype
 
-1. Plug it in to the Mac
+See the post here: http://www.basilsafwat.com/projects/3d-touch/
+
+## Using it
+
+1. Plug the bridge in to the Mac
 2. Start the web service from System Preferences
 3. Make sure the IP address in the code is pointing to the Mac
